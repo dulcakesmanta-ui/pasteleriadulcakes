@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DulCakes | Repostería Creativa & Tortas Personalizadas</title>
+    <!-- Tailwind CSS for utility styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastelPink: '#FADADD',
+                        pastelPinkLight: '#FFF2F3',
+                        pastelPinkDark: '#E5B7BA',
+                        turquoise: '#40E0D0',
+                        turquoiseLight: '#E6F9F8',
+                        turquoiseDark: '#20B2AA',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; color: #333333; overflow-x: hidden; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* Floating WhatsApp & Instagram Buttons */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.3s ease, background-color 0.3s;
+        }
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+            color: white;
+        }
+
+        .floating-instagram {
+            position: fixed;
+            bottom: 95px;
+            right: 25px;
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .floating-instagram:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Custom styling for cards & gradients */
+        .hero-gradient {
+            background: linear-gradient(135deg, #FFF2F3 0%, #E6F9F8 100%);
+        }
+        .badge-tag {
+            background-color: #FADADD;
+            color: #8c5357;
+        }
+        .badge-turquoise {
+            background-color: #E6F9F8;
+            color: #116b64;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <span class="bg-pink-100 p-2 rounded-circle text-pastelPinkDark font-bold text-xl"><i class="fa-solid fa-cake-candles text-pink-400"></i></span>
+                <span class="font-serif font-bold text-2xl tracking-wide text-slate-800">Dul<span class="text-pink-400">Cakes</span></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-lg-3">
+                    <li class="nav-item"><a class="nav-link font-medium text-slate-600 hover:text-pink-500" href="#galeria">Galería</a></li>
+                    <li class="nav-item"><a class="nav-link font-medium text-slate-600 hover:text-pink-500" href="#menu">Sabores</a></li>
+                    <li class="nav-item"><a class="nav-link font-medium text-slate-600 hover:text-pink-500" href="#porciones">Porciones</a></li>
+                    <li class="nav-item"><a class="nav-link font-medium text-slate-600 hover:text-pink-500" href="#proceso">Cómo Pedir</a></li>
+                    <li class="nav-item"><a class="nav-link font-medium text-slate-600 hover:text-pink-500" href="#testimonios">Testimonios</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a href="#cotizador" class="btn bg-pink-400 hover:bg-pink-500 text-white px-4 py-2 rounded-pill font-semibold shadow-sm transition">
+                            <i class="fa-solid fa-calculator me-1"></i> Cotizar Ahora
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient py-5 py-lg-6 position-relative overflow-hidden">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <span class="badge badge-tag px-3 py-2 rounded-pill font-semibold text-sm mb-3 d-inline-block">
+                        <i class="fa-solid fa-location-dot me-1"></i> San Cristóbal & Caracas
+                    </span>
+                    <h1 class="display-4 font-serif fw-bold text-slate-900 mb-4 lh-tight">
+                        Transformamos tus celebraciones en <span class="text-pink-500 italic">obras de arte</span> comestibles.
+                    </h1>
+                    <p class="lead text-slate-600 mb-4 fw-normal">
+                        Tortas personalizadas diseñadas a tu gusto, horneadas con ingredientes de alta gama y entregadas con puntualidad garantizada. Cotiza en menos de 2 minutos.
+                    </p>
+                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
+                        <a href="#cotizador" class="btn btn-dark btn-lg rounded-pill px-5 py-3 font-semibold shadow hover:bg-slate-800 transition">
+                            Cotizar mi Torta Ahora <i class="fa-solid fa-arrow-right ms-2"></i>
+                        </a>
+                        <a href="#galeria" class="btn btn-outline-dark btn-lg rounded-pill px-4 py-3 font-semibold transition">
+                            Ver Sabores y Portfolio
+                        </a>
+                    </div>
+                    <div class="mt-4 d-flex align-items-center justify-content-center justify-content-lg-start gap-4 text-slate-500 text-sm">
+                        <div class="d-flex align-items-center gap-1"><i class="fa-solid fa-check text-turquoise"></i> Puntualidad garantizada</div>
+                        <div class="d-flex align-items-center gap-1"><i class="fa-solid fa-check text-turquoise"></i> Ingredientes premium</div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <div class="position-absolute -top-4 -left-4 w-72 h-72 bg-pastelPink rounded-full filter blur-3xl opacity-50 z-0"></div>
+                        <div class="position-absolute -bottom-4 -right-4 w-72 h-72 bg-turquoise/30 rounded-full filter blur-3xl opacity-50 z-0"></div>
+                        <div class="card border-0 shadow-xl rounded-4 overflow-hidden position-relative z-10">
+                            <!-- High quality realistic cake placeholder image -->
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" 
+                                 class="w-100 object-fit-cover" style="height: 420px;" alt="Torta personalizada DulCakes buttercream"
+                                 onerror="this.src='https://placehold.co/800x420/FADADD/333333?text=DulCakes+Repostería+Creativa'">
+                            <div class="card-body bg-white p-4">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="font-serif fw-bold mb-1">Pastel de Gala Buttercream Suizo</h5>
+                                        <p class="text-slate-500 text-sm mb-0">Acabado impecable y flores naturales</p>
+                                    </div>
+                                    <span class="badge badge-turquoise px-3 py-2 rounded-pill font-bold">Favorito</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="py-5 bg-slate-50">
+        <div class="container py-4">
+            <div class="text-center max-w-2xl mx-auto mb-5">
+                <span class="text-pink-500 font-semibold text-uppercase tracking-wider text-sm">Nuestras Creaciones</span>
+                <h2 class="font-serif fw-bold text-3xl text-slate-900 mt-1">Galería de Trabajos</h2>
+                <p class="text-slate-600 mt-2">Explora nuestros estilos en buttercream, fondant y mesas dulces diseñadas para cada ocasión especial.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="d-flex flex-wrap justify-content-center gap-2 mb-5">
+                <button class="filter-btn active btn btn-dark rounded-pill px-4 py-2 font-medium transition" data-filter="all">Todas</button>
+                <button class="filter-btn btn btn-light border rounded-pill px-4 py-2 font-medium transition" data-filter="bodas">Bodas & Quinceaños</button>
+                <button class="filter-btn btn btn-light border rounded-pill px-4 py-2 font-medium transition" data-filter="infantiles">Infantiles</button>
+                <button class="filter-btn btn btn-light border rounded-pill px-4 py-2 font-medium transition" data-filter="esculpidas">Tortas 3D / Esculpidas</button>
+                <button class="filter-btn btn btn-light border rounded-pill px-4 py-2 font-medium transition" data-filter="mesas">Mesas Dulces</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="row g-4" id="portfolio-grid">
+                <!-- Item 1 -->
+                <div class="col-md-4 col-sm-6 portfolio-item" data-category="bodas">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white">
+                        <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=80" class="w-100 object-fit-cover" style="height: 280px;" alt="Bodas">
+                        <div class="card-body p-4">
+                            <span class="badge badge-tag mb-2">Bodas & Quinceaños</span>
+                            <h5 class="font-serif fw-bold">Torta Romántica de 3 Niveles</h5>
+                            <p class="text-slate-500 text-sm mb-0">Buttercream suizo perlado con detalles florales frescos.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="col-md-4 col-sm-6 portfolio-item" data-category="infantiles">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white">
+                        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80" class="w-100 object-fit-cover" style="height: 280px;" alt="Infantiles">
+                        <div class="card-body p-4">
+                            <span class="badge badge-tag mb-2">Infantiles</span>
+                            <h5 class="font-serif fw-bold">Pastel Mágico de Cumpleaños</h5>
+                            <p class="text-slate-500 text-sm mb-0">Diseño colorido con temática de fantasía y toques dorados.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="col-md-4 col-sm-6 portfolio-item" data-category="esculpidas">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80" class="w-100 object-fit-cover" style="height: 280px;" alt="Esculpidas">
+                        <div class="card-body p-4">
+                            <span class="badge badge-tag mb-2">Tortas 3D / Esculpidas</span>
+                            <h5 class="font-serif fw-bold">Torta Esculpida Temática</h5>
+                            <p class="text-slate-500 text-sm mb-0">Estructura interior reforzada y modelado en fondant de alta definición.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="col-md-4 col-sm-6 portfolio-item" data-category="mesas">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white">
+                        <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=600&q=80" class="w-100 object-fit-cover" style="height: 280px;" alt="Mesas Dulces">
+                        <div class="card-body p-4">
+                            <span class="badge badge-tag mb-2">Mesas Dulces & Cupcakes</span>
+                            <h5 class="font-serif fw-bold">Candy Bar Estándar</h5>
+                            <p class="text-slate-500 text-sm mb-0">Cupcakes, macarons y mini postres artesanales coordinados.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="col-md-4 col-sm-6 portfolio-item" data-category="bodas">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white">
+                        <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=80" class="w-100 object-fit-cover" style="height: 280px;" alt="Quinceaños">
+                        <div class="card-body p-4">
+                            <span class="badge badge-tag mb-2">Bodas & Quinceaños</span>
+                            <h5 class="font-serif fw-bold">Pastel Elegante Quince</h5>
+                            <p class="text-slate-500 text-sm mb-0">Tonos rosa pastel y detalles metalizados en oro comestible.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="col-md-4 col-sm-6 portfolio-item" data-category="infantiles">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 bg-white">
+                        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80" class="w-100 object-fit-cover" style="height: 280px;" alt="Infantiles">
+                        <div class="card-body p-4">
+                            <span class="badge badge-tag mb-2">Infantiles</span>
+                            <h5 class="font-serif fw-bold">Divertida Torta de Celebración</h5>
+                            <p class="text-slate-500 text-sm mb-0>Relleno doble de chocolate y cobertura cremosa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu & Flavors Section -->
+    <section id="menu" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="text-center max-w-2xl mx-auto mb-5">
+                <span class="text-pink-500 font-semibold text-uppercase tracking-wider text-sm">Calidad Incomparable</span>
+                <h2 class="font-serif fw-bold text-3xl text-slate-900 mt-1">Menú de Bizcochos, Rellenos y Coberturas</h2>
+                <p class="text-slate-600 mt-2">Elige la combinación perfecta para deleitar a todos tus invitados con sabores únicos.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Bizcochos -->
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-pastelPinkLight">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="bg-pink-400 text-white rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fa-solid fa-bread-slice fa-lg"></i>
+                            </div>
+                            <h3 class="font-serif fw-bold text-xl mb-0">Bizcochos</h3>
+                        </div>
+                        <ul class="list-unstyled space-y-3">
+                            <li class="d-flex justify-content-between border-bottom pb-2 mb-2"><span>Vainilla Bourbon</span> <span class="text-pink-500 font-semibold">Clásico</span></li>
+                            <li class="d-flex justify-content-between border-bottom pb-2 mb-2"><span>Chocolate Oscuro 70% Cacao</span> <span class="text-pink-500 font-semibold">Venezolano</span></li>
+                            <li class="d-flex justify-content-between border-bottom pb-2 mb-2"><span>Red Velvet Tradicional</span> <span class="text-pink-500 font-semibold">Suave</span></li>
+                            <li class="d-flex justify-content-between border-bottom pb-2 mb-2"><span>Zanahoria y Especias</span> <span class="text-pink-500 font-semibold">Húmedo</span></li>
+                            <li class="d-flex justify-content-between"><span>Almendra Suave</span> <span class="text-pink-500 font-semibold">Delicado</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Rellenos -->
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-turquoiseLight">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="bg-teal-500 text-white rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fa-solid fa-jar fa-lg"></i>
+                            </div>
+                            <h3 class="font-serif fw-bold text-xl mb-0">Rellenos Premium</h3>
+                        </div>
+                        <ul class="list-unstyled space-y-3">
+                            <li class="d-flex justify-content-between border-bottom pb-2 mb-2"><span>Ganache de Chocolate</span> <span class="text-teal-600 font-semibold">Intenso</span></li>
+                            <li class="d-flex justify-content-between border-bottom pb-2 mb-2"><span>Dulce de Leche Artesanal</span> <span class="text-teal-600 font-semibold">Tradicional</span></li>
+                            <li class="d-flex justify-content-between border-bottom pb-2 mb-2"><span>Crema Diplomática de Parchita</span> <span class="text-teal-600 font-semibold">Maracuyá</span></li>
+                            <li class="d-flex justify-content-between border-bottom pb-2 mb-2"><span>Compota Natural de Frutos Rojos</span> <span class="text-teal-600 font-semibold">Fresco</span></li>
+                            <li class="d-flex justify-content-between"><span>Nutella / Hazelnut</span> <span class="text-teal-600 font-semibold">Favorito</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Coberturas -->
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-slate-100">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="bg-slate-800 text-white rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fa-solid fa-palette fa-lg"></i>
+                            </div>
+                            <h3 class="font-serif fw-bold text-xl mb-0">Coberturas</h3>
+                        </div>
+                        <ul class="list-unstyled space-y-3">
+                            <li class="d-flex justify-content-between border-bottom pb-2 mb-2"><span>Buttercream Suizo</span> <span class="text-slate-700 font-semibold">Sedoso</span></li>
+                            <li class="d-flex justify-content-between border-bottom pb-2 mb-2"><span>Ganache de Sellado</span> <span class="text-slate-700 font-semibold">Estructural</span></li>
+                            <li class="d-flex justify-content-between"><span>Fondant de Alta Definición</span> <span class="text-slate-700 font-semibold">Escultórico</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portion Guide & Buying Process -->
+    <section id="porciones" class="py-5 bg-slate-50">
+        <div class="container py-4">
+            <div class="text-center max-w-2xl mx-auto mb-5">
+                <span class="text-pink-500 font-semibold text-uppercase tracking-wider text-sm">Guía y Pasos</span>
+                <h2 class="font-serif fw-bold text-3xl text-slate-900 mt-1">Guía de Porciones y Proceso de Compra</h2>
+                <p class="text-slate-600 mt-2">Todo lo que necesitas saber para ordenar tu torta ideal de forma rápida y segura.</p>
+            </div>
+
+            <!-- Porciones Cards -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 text-center bg-white h-100">
+                        <div class="bg-pink-100 text-pink-500 w-16 h-16 rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3">
+                            <i class="fa-solid fa-user-group fa-xl"></i>
+                        </div>
+                        <h4 class="font-serif fw-bold">1 Piso (Íntima)</h4>
+                        <p class="text-pink-500 fw-bold">15 a 18 porciones</p>
+                        <p class="text-slate-500 text-sm">Ideal para reuniones familiares y celebraciones en casa (Diámetro 15 cm).</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 text-center bg-white h-100">
+                        <div class="bg-turquoiseLight text-teal-600 w-16 h-16 rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3">
+                            <i class="fa-solid fa-cake-candles fa-xl"></i>
+                        </div>
+                        <h4 class="font-serif fw-bold">2 Pisos (Mediana)</h4>
+                        <p class="text-teal-600 fw-bold">30 a 35 porciones</p>
+                        <p class="text-slate-500 text-sm">Perfecta para cumpleaños medianos y reuniones corporativas (Diámetros 15 cm + 20 cm).</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 text-center bg-white h-100">
+                        <div class="bg-slate-200 text-slate-800 w-16 h-16 rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3">
+                            <i class="fa-solid fa-crown fa-xl"></i>
+                        </div>
+                        <h4 class="font-serif fw-bold">3 Pisos (Gran Evento)</h4>
+                        <p class="text-slate-800 fw-bold">60 a 75 porciones</p>
+                        <p class="text-slate-500 text-sm">Diseñada para bodas, grandes quinceaños y eventos de alta gala.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Steps Process -->
+            <div id="proceso" class="pt-4">
+                <h3 class="font-serif fw-bold text-center text-2xl mb-4">El Proceso en 4 Pasos</h3>
+                <div class="row g-4">
+                    <div class="col-md-3 text-center">
+                        <div class="bg-white rounded-circle shadow-sm w-16 h-16 d-flex align-items-center justify-content-center mx-auto mb-3 text-pink-500 fw-bold fs-4">1</div>
+                        <h5 class="font-serif fw-bold">Configura tu Pedido</h5>
+                        <p class="text-slate-500 text-sm">Usa nuestro cotizador interactivo en 1 minuto.</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="bg-white rounded-circle shadow-sm w-16 h-16 d-flex align-items-center justify-content-center mx-auto mb-3 text-pink-500 fw-bold fs-4">2</div>
+                        <h5 class="font-serif fw-bold">Presupuesto Inmediato</h5>
+                        <p class="text-slate-500 text-sm">Cálculo enviado automáticamente a tu WhatsApp.</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="bg-white rounded-circle shadow-sm w-16 h-16 d-flex align-items-center justify-content-center mx-auto mb-3 text-pink-500 fw-bold fs-4">3</div>
+                        <h5 class="font-serif fw-bold">Reserva tu Fecha</h5>
+                        <p class="text-slate-500 text-sm">Garantiza tu cupo con el 50% de abono.</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="bg-white rounded-circle shadow-sm w-16 h-16 d-flex align-items-center justify-content-center mx-auto mb-3 text-pink-500 fw-bold fs-4">4</div>
+                        <h5 class="font-serif fw-bold">Entrega o Retiro</h5>
+                        <p class="text-slate-500 text-sm">Retira en taller o recibe con transporte acondicionado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Funnel Form / Cotizador -->
+    <section id="cotizador" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="max-w-3xl mx-auto bg-slate-50 rounded-4 shadow-lg p-4 p-md-5 border">
+                <div class="text-center mb-4">
+                    <span class="badge badge-tag px-3 py-1 rounded-pill mb-2">Automatización n8n</span>
+                    <h2 class="font-serif fw-bold text-3xl">Cotizador Interactivo de Tortas</h2>
+                    <p class="text-slate-600 text-sm">Completa los pasos para recibir tu presupuesto estimado directamente en WhatsApp.</p>
+                </div>
+
+                <!-- Funnel Container -->
+                <form id="cake-quotation-form" onsubmit="submitQuotation(event)">
+                    <!-- Step 1: Event Details -->
+                    <div class="funnel-step" id="step-1">
+                        <h5 class="fw-bold mb-3 font-serif">Paso 1: Datos del Evento</h5>
+                        <div class="mb-3">
+                            <label class="form-label font-medium text-sm">Fecha del Evento</label>
+                            <input type="date" class="form-control rounded-3 p-3" id="event-date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label font-medium text-sm">Tipo de Celebración</label>
+                            <select class="form-select rounded-3 p-3" id="event-type" required>
+                                <option value="" selected disabled>Selecciona una opción</option>
+                                <option value="Boda">Boda</option>
+                                <option value="Quinceaños">Quinceaños</option>
+                                <option value="Cumpleaños Infantil">Cumpleaños Infantil</option>
+                                <option value="Cumpleaños Adulto">Cumpleaños Adulto</option>
+                                <option value="Aniversario / Otro">Aniversario / Otro</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-end mt-4">
+                            <button type="button" class="btn btn-dark rounded-pill px-4 py-2" onclick="nextStep(2)">Siguiente <i class="fa-solid fa-arrow-right ms-1"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Size & Portions -->
+                    <div class="funnel-step d-none" id="step-2">
+                        <h5 class="fw-bold mb-3 font-serif">Paso 2: Tamaño y Porciones</h5>
+                        <div class="mb-3">
+                            <label class="form-label font-medium text-sm">Número de Porciones / Invitados</label>
+                            <select class="form-select rounded-3 p-3" id="portions" required>
+                                <option value="15">15 Porciones (1 Piso - Íntima)</option>
+                                <option value="30" selected>30 Porciones (2 Pisos - Mediana)</option>
+                                <option value="60">60 Porciones (3 Pisos - Grande)</option>
+                                <option value="90">90+ Porciones (Evento Masivo)</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="button" class="btn btn-outline-dark rounded-pill px-4 py-2" onclick="prevStep(1)"><i class="fa-solid fa-arrow-left me-1"></i> Anterior</button>
+                            <button type="button" class="btn btn-dark rounded-pill px-4 py-2" onclick="nextStep(3)">Siguiente <i class="fa-solid fa-arrow-right ms-1"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Flavors & Finish -->
+                    <div class="funnel-step d-none" id="step-3">
+                        <h5 class="fw-bold mb-3 font-serif">Paso 3: Sabores y Acabado</h5>
+                        <div class="mb-3">
+                            <label class="form-label font-medium text-sm">Bizcocho</label>
+                            <select class="form-select rounded-3 p-3" id="sponge">
+                                <option value="Vainilla Bourbon">Vainilla Bourbon</option>
+                                <option value="Chocolate Oscuro 70%">Chocolate Oscuro 70% Cacao Venezolano</option>
+                                <option value="Red Velvet">Red Velvet Tradicional</option>
+                                <option value="Zanahoria">Zanahoria y Especias</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label font-medium text-sm">Relleno Premium</label>
+                            <select class="form-select rounded-3 p-3" id="filling">
+                                <option value="Ganache">Ganache de Chocolate</option>
+                                <option value="Dulce de Leche">Dulce de Leche Artesanal</option>
+                                <option value="Parchita">Crema Diplomática de Parchita</option>
+                                <option value="Frutos Rojos">Compota Natural de Frutos Rojos</option>
+                                <option value="Nutella">Nutella / Hazelnut</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label font-medium text-sm">Cobertura</label>
+                            <select class="form-select rounded-3 p-3" id="coverage">
+                                <option value="Buttercream Suizo">Buttercream Suizo</option>
+                                <option value="Ganache de Sellado">Ganache de Sellado</option>
+                                <option value="Fondant">Fondant de Alta Definición</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="button" class="btn btn-outline-dark rounded-pill px-4 py-2" onclick="prevStep(2)"><i class="fa-solid fa-arrow-left me-1"></i> Anterior</button>
+                            <button type="button" class="btn btn-dark rounded-pill px-4 py-2" onclick="nextStep(4)">Siguiente <i class="fa-solid fa-arrow-right ms-1"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Visual References -->
+                    <div class="funnel-step d-none" id="step-4">
+                        <h5 class="fw-bold mb-3 font-serif">Paso 4: Referencias Visuales</h5>
+                        <div class="mb-3">
+                            <label class="form-label font-medium text-sm">Enlace de Pinterest / Instagram o Descripción del Diseño</label>
+                            <textarea class="form-control rounded-3 p-3" id="design-ref" rows="3" placeholder="Ej: Me gustaría un diseño similar a la foto de portada en tonos rosa pastel con detalles dorados..."></textarea>
+                        </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="button" class="btn btn-outline-dark rounded-pill px-4 py-2" onclick="prevStep(3)"><i class="fa-solid fa-arrow-left me-1"></i> Anterior</button>
+                            <button type="button" class="btn btn-dark rounded-pill px-4 py-2" onclick="nextStep(5)">Siguiente <i class="fa-solid fa-arrow-right ms-1"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Contact Info -->
+                    <div class="funnel-step d-none" id="step-5">
+                        <h5 class="fw-bold mb-3 font-serif">Paso 5: Datos de Contacto</h5>
+                        <div class="mb-3">
+                            <label class="form-label font-medium text-sm">Nombre Completo</label>
+                            <input type="text" class="form-control rounded-3 p-3" id="client-name" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label font-medium text-sm">Número de WhatsApp (con código de país)</label>
+                            <input type="text" class="form-control rounded-3 p-3" id="client-phone" placeholder="+584125000068" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label font-medium text-sm">Zona de Entrega / Retiro</label>
+                            <select class="form-select rounded-3 p-3" id="delivery-zone">
+                                <option value="Retiro en Taller (San Cristóbal)">Retiro en Taller (San Cristóbal)</option>
+                                <option value="Delivery San Cristóbal">Delivery Especializado San Cristóbal</option>
+                                <option value="Caracas (Zona Este / Centro)">Caracas (Zona Este / Centro)</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="button" class="btn btn-outline-dark rounded-pill px-4 py-2" onclick="prevStep(4)"><i class="fa-solid fa-arrow-left me-1"></i> Anterior</button>
+                            <button type="submit" class="btn bg-pink-400 hover:bg-pink-500 text-white rounded-pill px-5 py-3 font-bold shadow">
+                                <i class="fa-brands fa-whatsapp me-2"></i> Enviar a WhatsApp & Cotizar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Success State (hidden initially) -->
+                <div id="quotation-success" class="d-none text-center py-4">
+                    <div class="bg-green-100 text-green-600 w-20 h-20 rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3">
+                        <i class="fa-solid fa-check fa-2x"></i>
+                    </div>
+                    <h3 class="font-serif fw-bold text-2xl mb-2">¡Cotización Generada con Éxito!</h3>
+                    <p class="text-slate-600 mb-4">Te estamos redirigiendo a WhatsApp con tu presupuesto estimado y detalles listos para el equipo de DulCakes.</p>
+                    <a id="whatsapp-redirect-btn" href="#" target="_blank" class="btn btn-success rounded-pill px-5 py-3 font-bold shadow">
+                        <i class="fa-brands fa-whatsapp me-2"></i> Abrir WhatsApp Manualmente
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials & FAQs Section -->
+    <section id="testimonios" class="py-5 bg-slate-50">
+        <div class="container py-4">
+            <div class="text-center max-w-2xl mx-auto mb-5">
+                <span class="text-pink-500 font-semibold text-uppercase tracking-wider text-sm">Confianza y Reseñas</span>
+                <h2 class="font-serif fw-bold text-3xl text-slate-900 mt-1">Lo que dicen nuestros clientes</h2>
+                <p class="text-slate-600 mt-2">Puntualidad, fidelidad en el diseño y un sabor exquisito que no empalaga.</p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                        <div class="text-warning mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 italic mb-4">"La torta de boda superó nuestras expectativas. Llegó perfecta a la hora acordada y el sabor a chocolate con ganache fue inolvidable para todos los invitados."</p>
+                        <h6 class="font-serif fw-bold mb-0">Mariana & Alejandro</h6>
+                        <span class="text-slate-400 text-sm">San Cristóbal</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                        <div class="text-warning mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 italic mb-4">"El cotizador web es súper rápido y me respondieron de inmediato en WhatsApp. La torta de cumpleaños de mi hija quedó idéntica a la foto que envié."</p>
+                        <h6 class="font-serif fw-bold mb-0">Carla Mendoza</h6>
+                        <span class="text-slate-400 text-sm">Caracas</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                        <div class="text-warning mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 italic mb-4">"Excelente atención y el buttercream no es empalagoso para nada. Definitivamente se convirtieron en mis reposteros favoritos en el Táchira."</p>
+                        <h6 class="font-serif fw-bold mb-0">Valeria Rincón</h6>
+                        <span class="text-slate-400 text-sm">San Cristóbal</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQs Accordion -->
+            <div class="max-w-3xl mx-auto pt-4">
+                <h3 class="font-serif fw-bold text-center text-2xl mb-4">Preguntas Frecuentes (FAQs)</h3>
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item border-0 shadow-sm rounded-3 mb-3 overflow-hidden">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                ¿Con cuánta anticipación debo hacer mi pedido?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-slate-600">
+                                Sugerimos un mínimo de 3 a 5 días de anticipación. Para bodas, quinceaños y grandes eventos, recomendamos reservar con al menos 15 días de anticipación para asegurar disponibilidad en nuestra agenda.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 shadow-sm rounded-3 mb-3 overflow-hidden">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                ¿Cuáles son los métodos de pago aceptados?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-slate-600">
+                                Aceptamos Pago Móvil (Bs. a tasa oficial), Zelle, Binance Pay, PayPal y efectivo en USD / COP. Las reservas se confirman con el 50% de abono.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 shadow-sm rounded-3 mb-3 overflow-hidden">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                ¿Cómo garantizan que la torta llegue segura?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-slate-600">
+                                Todas nuestras tortas cuentan con estructuras internas de soporte profesional y ofrecemos servicio de transporte especializado con control de temperatura y anclaje antivibración.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-5">
+        <div class="container py-4">
+            <div class="row g-4 justify-content-between">
+                <div class="col-lg-4">
+                    <a class="d-flex align-items-center gap-2 mb-3 text-decoration-none" href="#">
+                        <span class="bg-pink-400 p-2 rounded-circle text-white font-bold"><i class="fa-solid fa-cake-candles"></i></span>
+                        <span class="font-serif font-bold text-2xl text-white">Dul<span class="text-pink-400">Cakes</span></span>
+                    </a>
+                    <p class="text-slate-400 text-sm">Transformando celebraciones en momentos inolvidables a través de la repostería creativa de alta gama en San Cristóbal y Caracas.</p>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="font-serif fw-bold mb-3">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled space-y-2 text-sm text-slate-400">
+                        <li><a href="#galeria" class="text-decoration-none text-slate-400 hover:text-white">Galería de Trabajos</a></li>
+                        <li><a href="#menu" class="text-decoration-none text-slate-400 hover:text-white">Menú de Sabores</a></li>
+                        <li><a href="#porciones" class="text-decoration-none text-slate-400 hover:text-white">Guía de Porciones</a></li>
+                        <li><a href="#cotizador" class="text-decoration-none text-slate-400 hover:text-white">Cotizador Web</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="font-serif fw-bold mb-3">Contacto Directo</h5>
+                    <p class="text-slate-400 text-sm mb-2"><i class="fa-brands fa-whatsapp text-success me-2"></i> +58 412-5000068</p>
+                    <p class="text-slate-400 text-sm mb-2"><i class="fa-brands fa-instagram text-pink-400 me-2"></i> @dulcakessc</p>
+                    <p class="text-slate-400 text-sm"><i class="fa-solid fa-location-dot text-teal-400 me-2"></i> San Cristóbal, Táchira & Caracas</p>
+                </div>
+            </div>
+            <hr class="border-slate-800 my-4">
+            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center text-slate-500 text-xs">
+                <p class="mb-0">&copy; 2026 DulCakes. Todos los derechos reservados.</p>
+                <p class="mb-0">Diseñado con Estándar de Conversión Avanzado (Nivel 3)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Bubble -->
+    <a href="https://wa.me/584125000068?text=Hola%20DulCakes,%20deseo%20más%20información%20sobre%20sus%20tortas%20personalizadas." class="floating-whatsapp" target="_blank" title="Chatear por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Floating Instagram Bubble -->
+    <a href="https://instagram.com/dulcakessc" class="floating-instagram" target="_blank" title="Síguenos en Instagram">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <!-- Bootstrap JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Gallery Filter Script
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('active', 'btn-dark');
+                    b.classList.add('btn-light', 'border');
+                });
+                btn.classList.add('active', 'btn-dark');
+                btn.classList.remove('btn-light', 'border');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Funnel Step Navigation
+        function nextStep(step) {
+            document.querySelectorAll('.funnel-step').forEach(el => el.classList.add('d-none'));
+            document.getElementById(`step-${step}`).classList.remove('d-none');
+        }
+
+        function prevStep(step) {
+            document.querySelectorAll('.funnel-step').forEach(el => el.classList.add('d-none'));
+            document.getElementById(`step-${step}`).classList.remove('d-none');
+        }
+
+        // Quotation Submission and WhatsApp Redirect Simulation
+        function submitQuotation(event) {
+            event.preventDefault();
+            
+            const date = document.getElementById('event-date').value;
+            const type = document.getElementById('event-type').value;
+            const portions = document.getElementById('portions').value;
+            const sponge = document.getElementById('sponge').value;
+            const filling = document.getElementById('filling').value;
+            const coverage = document.getElementById('coverage').value;
+            const name = document.getElementById('client-name').value;
+            const phone = document.getElementById('client-phone').value;
+            const zone = document.getElementById('delivery-zone').value;
+
+            // Simple Estimation formula
+            let basePrice = parseInt(portions) * 4.5;
+            if (coverage === 'Fondant') basePrice += 15;
+            if (coverage === 'Ganache de Sellado') basePrice += 10;
+
+            const message = `¡Hola! Soy *${name}*. Acabo de usar el cotizador web en DulCakes.\n\n` +
+                            `🎉 *Detalles del Evento:*\n` +
+                            `- Fecha: ${date}\n` +
+                            `- Tipo: ${type}\n` +
+                            `- Porciones: ${portions} aprox.\n` +
+                            `- Bizcocho: ${sponge}\n` +
+                            `- Relleno: ${filling}\n` +
+                            `- Cobertura: ${coverage}\n` +
+                            `- Zona: ${zone}\n\n` +
+                            `💰 *Presupuesto Estimado:* $${basePrice.toFixed(2)}\n\n` +
+                            `Por favor confirmar disponibilidad de fecha y validar diseño. ¡Gracias!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/584125000068?text=${encodedMessage}`;
+
+            // Hide form, show success state
+            document.getElementById('cake-quotation-form').classList.add('d-none');
+            document.getElementById('quotation-success').classList.remove('d-none');
+            document.getElementById('whatsapp-redirect-btn').setAttribute('href', whatsappUrl);
+
+            // Auto-redirect after 2 seconds
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
